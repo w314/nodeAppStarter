@@ -1,5 +1,3 @@
-// get supertest
-// const request = require('supertest');
 import { agent as request } from 'supertest';
 import app from '../index';
 
@@ -10,6 +8,12 @@ describe('GET api/sampleRoute', () => {
       .get('/api/sampleRoute')
       .expect(200)
       .expect('Content-Type', 'text/html; charset=utf-8')
-      .end((error: Error) => (error ? done.fail(error) : done()));
+      .then((response) => {
+        expect(response.text).toBe('Application starting page');
+        done();
+      })
+      .catch((Error) => {
+        Error ? done.fail(Error) : done();
+      });
   });
 });
