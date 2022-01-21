@@ -1,5 +1,5 @@
 ## Setup new project by cloning projectBase
-### Clone projectBase repository
+### Clone nodeAppStarter repository
 ```shell
 git clone https://github.com/w314/projectBase.git <newProjecName>
 ```
