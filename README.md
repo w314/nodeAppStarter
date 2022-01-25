@@ -59,6 +59,9 @@ git push origin master
   ```shell
   mkdir <project_directory>
   cd <project_directory>
+  mkdir src
+  mkdir src/routes
+  mkdir src/tests
   ```
 
   #### Initate your node project
