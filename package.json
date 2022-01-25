@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon src/index.ts",
+    "devStart": "nodemon src/index.ts",
+    "start": "npm run build && node dist/index.js",
     "prettier": "prettier --config .prettierrc \"src/**/*{js,ts,tsx}\" --write",
     "lint": "eslint \"src/**/*.{js,ts}\"",
     "build": "npx tsc",
