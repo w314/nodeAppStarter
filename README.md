@@ -1,5 +1,5 @@
 # Starter Code for Node Projects
-node, express, typescript, jasmine, eslint, prettier, lite-server
+node, express, typescript, jasmine, eslint, prettier, ejs, lite-server
 
 ## Setup new project by cloning nodeAppStarter
 ### Clone nodeAppStarter repository
@@ -62,7 +62,8 @@ git push origin master
   mkdir src
   mkdir src/routes
   mkdir src/tests
-  echo "// Application Starting Page" > src/index.ts
+  mkdir views
+  echo "// Application Starting Page" > src/server.ts
 
   ```
 
@@ -171,7 +172,7 @@ git push origin master
   In `package.json` under `scripts` add:
   ```javascript
   "scripts": {
-    "start": "npm run build && node dist/index.js",
+    "start": "npm run build && node dist/server.js",
     "prettier": "prettier --config .prettierrc \"src/**/*{js,ts,tsx}\" --write",
     "lint": "eslint \"src/**/*.{js,ts}\"",
     "build": "npx tsc"
@@ -210,7 +211,7 @@ git push origin master
   - `nodemone` will restart the server every time after we save changes to it.
   - add `devStart` script to `package.json`
   ```shell
-  "devStart": "nodemon src/index.ts"
+  "devStart": "nodemon src/server.ts"
   ```
 
 
