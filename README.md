@@ -62,6 +62,8 @@ git push origin master
   mkdir src
   mkdir src/routes
   mkdir src/tests
+  echo "// Application Starting Page" > src/index.ts
+
   ```
 
   #### Initate your node project
@@ -119,7 +121,7 @@ git push origin master
       "target": "es5",                          
       "lib": ["ES2018", "DOM"], 
       "module": "commonjs",                     
-      "outDir": "./build",                        
+      "outDir": "./dist",                        
       "strict": true,                           
       "noImplicitAny": true,                 
     },
@@ -127,9 +129,9 @@ git push origin master
   }
   ```
   
-  `.eslintrc.js`
+  `.eslintrc`
   
-  Add an *.eslintrc.js* configuration file in the **project root directory**. The JavaScript format adds the possibility to add comment vs the JSON format.
+  Add an *.eslintrc* configuration file in the **project root directory**.
   ```javascript
   echo '{
     "root": true,
@@ -145,11 +147,11 @@ git push origin master
       "prettier"
     ],
     "rules": {
-      "no-console": 'off',
+      "no-console": "off",
       "prettier/prettier": 2 // Means error
     }
   }
-  ' > .eslintrc.js
+  ' > .eslintrc
   ```
   > Make sure that plugin:prettier/recommended is the last configuration in the extends array
   
@@ -169,15 +171,17 @@ git push origin master
   In `package.json` under `scripts` add:
   ```javascript
   "scripts": {
-    "start": "npm run build && node /index.js",
-    "prettier": "prettier --config .prettierrc \\"src/**/*js\\" --write",
-    "lint": "eslint \\"src/**/*.{js,ts,tsx}\\"",
+    "start": "npm run build && node dist/index.js",
+    "prettier": "prettier --config .prettierrc \"src/**/*{js,ts,tsx}\" --write",
+    "lint": "eslint \"src/**/*.{js,ts}\"",
     "build": "npx tsc"
   },
   ```
   - `npx` stands for Node Package Executer and comes with node
-  - `npm run build` complies .ts files to .js files
-  - `node .build/index.js` will run the application
+  - `npm run build` creates `dist` directory if it doesn't exist yet and complies .ts files to .js files
+  - `start` will build and run the application
+
+
   ### Add `GIT`
   #### Create a git repository for your project
   - run `git init`
