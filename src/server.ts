@@ -6,6 +6,9 @@ import routes from './routes/index';
 const app = express();
 const port = 3000;
 
+// set view engine
+app.set('view engine', 'ejs');
+
 //setup your app to use the router
 app.use('/api', routes);
 
